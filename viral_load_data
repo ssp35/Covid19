@@ -1,0 +1,136 @@
+---
+title: "Viral Load Data"
+author: "Saryu Patel"
+date: "9/1/2020"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r, message=FALSE, warning=FALSE}
+data <- read.csv("Viral Load Data.csv", header = TRUE)
+library(dplyr)
+library(tidyr)
+library(mdsr)
+```
+
+```{r}
+attach(data)
+```
+
+```{r}
+data["LogViralLoad"] <- round(log(Viral.copies...mL), 2)
+data <- rename(data, CollectionDay = Collection.Day..after.illness.onset.)
+head(data)
+```
+
+```{r}
+detach(data)
+```
+
+
+```{r}
+spread_data <- data %>% spread(Specimen.Type, LogViralLoad) %>% select(Patient, CollectionDay, `Nasopharyngeal flock swab`, Plasma, Sputum, Stool, `Tracheal aspirate`)
+head(spread_data)
+```
+
+```{r}
+attach(spread_data)
+```
+
+Patient A
+```{r, warning=FALSE}
+PatientA <- spread_data %>% filter(Patient == "A") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Plasma" = min(Plasma, na.rm = TRUE), "Sputum" = min(Sputum, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE), "TrachealAspirate" = min(`Tracheal aspirate`, na.rm = TRUE))
+PatientA$NasopharyngealFlockSwab[which(is.infinite(PatientA$NasopharyngealFlockSwab))] <- NA
+PatientA$Plasma[which(is.infinite(PatientA$Plasma))] <- NA
+PatientA$Sputum[which(is.infinite(PatientA$Sputum))] <- NA
+PatientA$Stool[which(is.infinite(PatientA$Stool))] <- NA
+PatientA$TrachealAspirate[which(is.infinite(PatientA$TrachealAspirate))] <- NA
+PatientA
+```
+
+Patient B
+```{r, warning=FALSE}
+PatientB <- spread_data %>% filter(Patient == "B") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE), "TrachealAspirate" = min(`Tracheal aspirate`, na.rm = TRUE))
+PatientB$NasopharyngealFlockSwab[which(is.infinite(PatientB$NasopharyngealFlockSwab))] <- NA
+PatientB$Stool[which(is.infinite(PatientB$Stool))] <- NA
+PatientB$TrachealAspirate[which(is.infinite(PatientB$TrachealAspirate))] <- NA
+PatientB
+```
+
+Patient C
+```{r, warning=FALSE}
+PatientC <- spread_data %>% filter(Patient == "C") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Sputum" = min(Sputum, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientC$NasopharyngealFlockSwab[which(is.infinite(PatientC$NasopharyngealFlockSwab))] <- NA
+PatientC$Sputum[which(is.infinite(PatientC$Sputum))] <- NA
+PatientC$Stool[which(is.infinite(PatientC$Stool))] <- NA
+PatientC
+```
+
+Patient D
+```{r, warning=FALSE}
+PatientD <- spread_data %>% filter(Patient == "D") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Sputum" = min(Sputum, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientD$NasopharyngealFlockSwab[which(is.infinite(PatientD$NasopharyngealFlockSwab))] <- NA
+PatientD$Sputum[which(is.infinite(PatientD$Sputum))] <- NA
+PatientD$Stool[which(is.infinite(PatientD$Stool))] <- NA
+PatientD
+```
+
+Patient E
+```{r, warning=FALSE}
+PatientE <- spread_data %>% filter(Patient == "E") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Sputum" = min(Sputum, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientE$NasopharyngealFlockSwab[which(is.infinite(PatientE$NasopharyngealFlockSwab))] <- NA
+PatientE$Sputum[which(is.infinite(PatientE$Sputum))] <- NA
+PatientE$Stool[which(is.infinite(PatientE$Stool))] <- NA
+PatientE
+```
+
+Patient F
+```{r, warning=FALSE}
+PatientF <- spread_data %>% filter(Patient == "F") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientF$NasopharyngealFlockSwab[which(is.infinite(PatientF$NasopharyngealFlockSwab))] <- NA
+PatientF$Stool[which(is.infinite(PatientF$Stool))] <- NA
+PatientF
+```
+
+Patient G
+```{r, warning=FALSE}
+PatientG <- spread_data %>% filter(Patient == "G") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Sputum" = min(Sputum, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientG$NasopharyngealFlockSwab[which(is.infinite(PatientG$NasopharyngealFlockSwab))] <- NA
+PatientG$Sputum[which(is.infinite(PatientG$Sputum))] <- NA
+PatientG$Stool[which(is.infinite(PatientG$Stool))] <- NA
+PatientG
+```
+
+Patient H
+```{r, warning=FALSE}
+PatientH <- spread_data %>% filter(Patient == "H") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Plasma" = min(Plasma, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientH$NasopharyngealFlockSwab[which(is.infinite(PatientH$NasopharyngealFlockSwab))] <- NA
+PatientH$Plasma[which(is.infinite(PatientH$Plasma))] <- NA
+PatientH$Stool[which(is.infinite(PatientH$Stool))] <- NA
+PatientH
+```
+
+Patient I
+```{r, warning=FALSE}
+PatientI <- spread_data %>% filter(Patient == "I") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientI$NasopharyngealFlockSwab[which(is.infinite(PatientI$NasopharyngealFlockSwab))] <- NA
+PatientI$Stool[which(is.infinite(PatientI$Stool))] <- NA
+PatientI
+```
+
+Patient J
+```{r, warning=FALSE}
+PatientJ <- spread_data %>% filter(Patient == "J") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientJ$NasopharyngealFlockSwab[which(is.infinite(PatientJ$NasopharyngealFlockSwab))] <- NA
+PatientJ$Stool[which(is.infinite(PatientJ$Stool))] <- NA
+PatientJ
+```
+
+Patient K
+```{r, warning=FALSE}
+PatientK <- spread_data %>% filter(Patient == "K") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
+PatientK$NasopharyngealFlockSwab[which(is.infinite(PatientK$NasopharyngealFlockSwab))] <- NA
+PatientK$Stool[which(is.infinite(PatientK$Stool))] <- NA
+PatientK
+```
