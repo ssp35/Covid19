@@ -12,6 +12,7 @@ data <- read.csv("Viral Load Data.csv", header = TRUE)
 library(dplyr)
 library(tidyr)
 library(mdsr)
+library(ggplot2)
 ```
 
 ```{r}
@@ -49,6 +50,18 @@ PatientA$TrachealAspirate[which(is.infinite(PatientA$TrachealAspirate))] <- NA
 PatientA
 ```
 
+NasopharyngealFlockSwabA
+```{r}
+NasoA <- PatientA %>% select(CollectionDay, NasopharyngealFlockSwab) %>% na.omit
+NasoA %>% ggplot(aes(CollectionDay, NasopharyngealFlockSwab)) + geom_point() + geom_line()
+```
+
+TrachealAspirate
+```{r}
+TrachA <- PatientA %>% select(CollectionDay, TrachealAspirate) %>% na.omit
+TrachA %>% ggplot(aes(CollectionDay, TrachealAspirate)) + geom_point() + geom_line()
+```
+
 Patient B
 ```{r, warning=FALSE}
 PatientB <- spread_data %>% filter(Patient == "B") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE), "TrachealAspirate" = min(`Tracheal aspirate`, na.rm = TRUE))
@@ -56,6 +69,12 @@ PatientB$NasopharyngealFlockSwab[which(is.infinite(PatientB$NasopharyngealFlockS
 PatientB$Stool[which(is.infinite(PatientB$Stool))] <- NA
 PatientB$TrachealAspirate[which(is.infinite(PatientB$TrachealAspirate))] <- NA
 PatientB
+```
+
+TrachB
+```{r}
+TrachB <- PatientB %>% select(CollectionDay, TrachealAspirate) %>% na.omit
+TrachB %>% ggplot(aes(CollectionDay, TrachealAspirate)) + geom_point() + geom_line()
 ```
 
 Patient C
@@ -85,12 +104,24 @@ PatientE$Stool[which(is.infinite(PatientE$Stool))] <- NA
 PatientE
 ```
 
+SputumE
+```{r}
+SputumE <- PatientE %>% select(CollectionDay, Sputum) %>% na.omit()
+SputumE %>% ggplot(aes(CollectionDay, Sputum)) + geom_point() + geom_line()
+```
+
 Patient F
 ```{r, warning=FALSE}
 PatientF <- spread_data %>% filter(Patient == "F") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
 PatientF$NasopharyngealFlockSwab[which(is.infinite(PatientF$NasopharyngealFlockSwab))] <- NA
 PatientF$Stool[which(is.infinite(PatientF$Stool))] <- NA
 PatientF
+```
+
+NasoF
+```{r}
+NasoF <- PatientF %>% select(CollectionDay, NasopharyngealFlockSwab) %>% na.omit
+NasoF %>% ggplot(aes(CollectionDay, NasopharyngealFlockSwab)) + geom_point() + geom_line()
 ```
 
 Patient G
@@ -102,6 +133,12 @@ PatientG$Stool[which(is.infinite(PatientG$Stool))] <- NA
 PatientG
 ```
 
+SputumG
+```{r}
+SputumG <- PatientG %>% select(CollectionDay, Sputum) %>% na.omit()
+SputumG %>% ggplot(aes(CollectionDay, Sputum)) + geom_point() + geom_line()
+```
+
 Patient H
 ```{r, warning=FALSE}
 PatientH <- spread_data %>% filter(Patient == "H") %>% group_by(CollectionDay) %>% summarize("NasopharyngealFlockSwab" = min(`Nasopharyngeal flock swab`, na.rm = TRUE), "Plasma" = min(Plasma, na.rm = TRUE), "Stool" = min(Stool, na.rm = TRUE))
@@ -109,6 +146,12 @@ PatientH$NasopharyngealFlockSwab[which(is.infinite(PatientH$NasopharyngealFlockS
 PatientH$Plasma[which(is.infinite(PatientH$Plasma))] <- NA
 PatientH$Stool[which(is.infinite(PatientH$Stool))] <- NA
 PatientH
+```
+
+StoolH
+```{r}
+StoolH <- PatientH %>% select(CollectionDay, Stool) %>% na.omit()
+StoolH %>% ggplot(aes(CollectionDay, Stool)) + geom_point() + geom_line()
 ```
 
 Patient I
