@@ -1,0 +1,98 @@
+﻿Patient,Specimen Type,Collection Day (after illness onset),Viral copies / mL
+A,Nasopharyngeal flock swab,9,6332825
+A,Nasopharyngeal flock swab,11,981547
+A,Nasopharyngeal flock swab,12,260091
+A,Nasopharyngeal flock swab,13,6944611
+A,Nasopharyngeal flock swab,15,8686
+A,Nasopharyngeal flock swab,18,3247
+A,Nasopharyngeal flock swab,21,371834
+A,Nasopharyngeal flock swab,29,5713
+A,Tracheal aspirate,11,19947742
+A,Tracheal aspirate,12,16702913
+A,Tracheal aspirate,13,20233006
+A,Tracheal aspirate,15,2562962
+A,Tracheal aspirate,18,41994
+A,Tracheal aspirate,21,5947
+A,Sputum,32,46066
+A,Plasma,11,4445
+A,Plasma,12,4050
+A,Plasma,13,4347
+A,Plasma,15,2204
+A,Stool,20,3861
+A,Stool,21,13147
+A,Stool,22,2741
+B,Nasopharyngeal flock swab,5,93245
+B,Nasopharyngeal flock swab,8,56683
+B,Nasopharyngeal flock swab,10,1494
+B,Tracheal aspirate,11,2126805
+B,Tracheal aspirate,12,4988624
+B,Tracheal aspirate,13,115080137
+B,Tracheal aspirate,16,181584
+B,Tracheal aspirate,18,125675
+B,Stool,16,109199
+B,Stool,17,5974
+B,Stool,18,977
+B,Stool,19,1623
+C,Nasopharyngeal flock swab,10,58446768
+C,Nasopharyngeal flock swab,19,2790
+C,Sputum,10,344971463
+C,Sputum,21,4949
+C,Stool,22,2000
+D,Nasopharyngeal flock swab,11,11334688
+D,Nasopharyngeal flock swab,13,26130031
+D,Nasopharyngeal flock swab,15,179909
+D,Nasopharyngeal flock swab,17,3941
+D,Sputum,11,6605675
+D,Sputum,19,12054111
+D,Sputum,21,1339
+D,Stool,14,5558
+E,Nasopharyngeal flock swab,5,113627613
+E,Sputum,5,45550089
+E,Sputum,12,22203363
+E,Sputum,14,69014659
+E,Sputum,16,2144489
+E,Sputum,19,38392
+E,Sputum,20,12838
+E,Sputum,21,23817220
+E,Stool,15,54756
+E,Stool,17,5043
+F,Nasopharyngeal flock swab,7,37426964
+F,Nasopharyngeal flock swab,8,10000000
+F,Nasopharyngeal flock swab,9,4604136337
+F,Nasopharyngeal flock swab,11,4991829
+F,Nasopharyngeal flock swab,14,9172
+F,Nasopharyngeal flock swab,16,752
+F,Stool,9,39913
+F,Stool,12,31538
+F,Stool,14,1806
+G,Nasopharyngeal flock swab,12,869697
+G,Nasopharyngeal flock swab,15,1046
+G,Nasopharyngeal flock swab,19,6687
+G,Nasopharyngeal flock swab,22,824
+G,Sputum,10,4346248
+G,Sputum,12,2138195
+G,Sputum,15,302616
+G,Sputum,17,7828411
+G,Sputum,22,3104
+G,Stool,12,3261
+H,Nasopharyngeal flock swab,4,792685
+H,Nasopharyngeal flock swab,7,6803
+H,Nasopharyngeal flock swab,9,8259
+H,Nasopharyngeal flock swab,14,2016
+H,Plasma,4,9995
+H,Stool,6,92646
+H,Stool,7,157170
+H,Stool,8,18058
+H,Stool,9,54238
+H,Stool,10,12724
+I,Nasopharyngeal flock swab,11,134548
+I,Nasopharyngeal flock swab,12,370276
+I,Nasopharyngeal flock swab,13,4190
+I,Nasopharyngeal flock swab,15,2281
+I,Stool,19,2763064
+J,Nasopharyngeal flock swab,5,2500000
+J,Nasopharyngeal flock swab,7,3067
+J,Nasopharyngeal flock swab,9,13192
+J,Stool,8,7938
+K,Nasopharyngeal flock swab,6,1767
+K,Stool,8,1919
